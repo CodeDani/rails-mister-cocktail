@@ -1,0 +1,11 @@
+ <div class="banner-content">
+    <p>Add a new cocktail</p>
+    <div class="form">
+      <%= simple_form_for @cocktail do |f| %>
+        <%= f.input :name, class: 'form-control' %>
+        <%= f.button :submit, class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+</div>
+<%= link_to "Cancel", cocktails_path %>
+

@@ -1,0 +1,31 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Mukta" rel="stylesheet">
+</head>
+
+<body>
+  <div class="cocktailbody-text"> <h1> A few of my favorite drinks </h1> </div>
+<div class="container">
+     <div class="cocktailbody-text"> <%= link_to "Add a new cocktail", new_cocktail_path(@cocktail)%></div>
+  <div class="row">
+    <% @cocktails.each do |cocktail| %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="cocktail-card-details">
+          <div class="cocktail-card-image">
+          </div>
+          <div class="cocktail-card-content">
+            <div class="cocktail-card-title">
+              <h4><%= cocktail.name %></h4>
+            </div>
+            <div class="flex">
+            </div>
+          </div>
+          <div class="cocktail-card-actions">
+           <font id="moreinfo"> <%= link_to 'More info', cocktail %> </font>
+           <font id="delete"> <%= link_to "Delete", cocktail_path(cocktail), method: :delete %></font>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>
+</div>
+</body>
