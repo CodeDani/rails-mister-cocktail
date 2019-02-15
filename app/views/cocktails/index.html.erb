@@ -3,15 +3,14 @@
 </head>
 
 <body>
-  <div class="cocktailbody-text"> <h1> A few of my favorite drinks </h1> </div>
+  <div class="cocktailbody-text"> <h1> My favorite cocktail recipes </h1> </div>
 <div class="container">
      <div class="cocktailbody-text"> <%= link_to "Add a new cocktail", new_cocktail_path(@cocktail)%></div>
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="col-xs-12 col-sm-4">
-        <div class="cocktail-card-details">
+        <div class="cocktail-card-details" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo unless cocktail.photo.blank?%>');">
           <div class="cocktail-card-image">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg">
           </div>
           <div class="cocktail-card-content">
             <div class="cocktail-card-title">
@@ -22,7 +21,7 @@
           </div>
           <div class="cocktail-card-actions">
            <font id="moreinfo"> <%= link_to 'More info', cocktail %> </font>
-           <font id="delete"> <%= link_to "Delete", cocktail_path(cocktail), method: :delete %></font>
+           <font id="delete"> <%= link_to "Delete", cocktail_path(cocktail), method: :delete, data: {confirm: "Are you sure you want to delete this drink from the database?"} %></font>
           </div>
         </div>
       </div>
